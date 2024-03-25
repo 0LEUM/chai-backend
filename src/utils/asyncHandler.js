@@ -1,6 +1,6 @@
-import { Promise } from "mongoose"
+import { Promise } from "mongoose";
 
-//WITH TRY CATCH
+//* WITH TRY CATCH
 /*
 const asyncHandler = (fn) => async (req, res, next) => {
     try {
@@ -15,11 +15,11 @@ const asyncHandler = (fn) => async (req, res, next) => {
 }
 */
 
-//WITH PROMISE
+//*WITH PROMISE
 const asyncHandler = (requestHandler) => {
-    (req, res, next) => {
-        Promise.resolve(requestHandler(req,res,next)).catch((err) => next(err))
-    }
-}
+  (req, res, next) => {
+    Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
+  };
+};
 
-export {asyncHandler}
+export { asyncHandler };
